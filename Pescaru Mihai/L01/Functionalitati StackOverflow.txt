@@ -1,12 +1,9 @@
-Functionalitatile de baza platformei Stackoverflow sunt cele ale unui forum: crearea de topic-uri de catre utilizatorii inregistrati, dar si postarea raspunsurilor ulterioare. Enumeram, mai jos,
-toate functionalitatile aplicatiei:
+Functionalitatile de baza ale platformei Stackoverflow sunt cele ale unui forum: crearea de topic-uri de catre utilizatorii inregistrati, dar si postarea raspunsurilor ulterioare. Enumeram, astfel,
+unele din functionalitatile aplicatiei:
 
 - Sistem autentificare
 - Sistem de reputatie
 - Sistem de notificari
-- Postarea de topic-uri (intrebari)
+- Postarea de topic-uri
 - Oferirea unui raspuns in cadrul unui topic
-- Postarea unui comentariu pentru un topic/raspuns
-- Sistem de cautare dupa tag (implicit, de atribuire a unui tag pentru un topic creat)
-- Oferirea serviciilor de cautare a unui loc de munca in domeniul IT
-- Oferirea posibilitatii de reclama pe platforma, contra-cost
+- Sistem de cautare a topic-urilor

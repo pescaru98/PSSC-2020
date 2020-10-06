@@ -1,0 +1,9 @@
+Business events:
+
+- Auth form sent (User)
+- Reputation point given (User)
+- Topic posted (User)
+- Topic updated (User)
+- Topic searching (User)
+- Reply posted (User)
+- Reply updated (User)
