@@ -1,2 +1,42 @@
 Workflows from question context
 (Contextul întrebări de pe site-ul stackoverflow)
+
+Bounded Context: "Question context"
+	Workflow: "Topic create"
+		Triggered by: "Topic create request received"
+		Input: "Topic form" (Title, Body, Tags associated)
+		Other inputs (dependencies): User logged and authorized"
+		Output: "Topic created" event
+		Side effects: Fail or succes notification sent to the user
+
+	Workflow: "Reply create"
+		Triggered by:  "Reply create request received"
+		Input: "Reply form" (message)
+		Other inputs: User logged and authorized"
+		Output: Reply posted event
+		Side effects:  Fail or succes notification sent to the user
+
+Workflow: "Topic create"
+	Input: "Topic form" (Title, Body, Tags associated)
+	Output: "Topic created" event
+	//step1
+		do validate Topic form
+		if form is invalid then
+			Send fail notification
+			stop
+	//step2
+		Send succes notification
+	//step3
+		return "Topic created" event
+
+Substep: "Validate topic form"
+	input: "unvalidated topic form"
+	output: "validated topic form"
+	dependencies: Machine Learning validation, Manual validation
+
+validate title
+validate body
+validate tags
+if all validation passed then
+	return validate topic created form
+else return validation error
