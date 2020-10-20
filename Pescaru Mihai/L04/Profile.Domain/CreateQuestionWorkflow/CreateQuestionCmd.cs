@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Profile.Domain.CreateProfileWorkflow
+namespace Profile.Domain.CreateQuestionWorkflow
 {
-    public struct CreateProfileCmd
+    public struct CreateQuestionCmd
     {
         [Required]
         public string Title { get; private set; }
@@ -15,7 +15,7 @@ namespace Profile.Domain.CreateProfileWorkflow
         public string Tags { get; private set; }
 
 
-        public CreateProfileCmd(string title, string body, string tags)
+        public CreateQuestionCmd(string title, string body, string tags)
         {
             Title = title;
             Body = body;

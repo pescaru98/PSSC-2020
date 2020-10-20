@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using CSharp.Choices;
 
-namespace Profile.Domain.CreateProfileWorkflow
+namespace Profile.Domain.CreateQuestionWorkflow
 {
     [AsChoice]
-    public static partial class CreateProfileResult
+    public static partial class CreateQuestionResult
     {
-        public interface ICreateProfileResult { }
+        public interface ICreateQuestionResult { }
 
-        public class ProfileCreated: ICreateProfileResult
+        public class QuestionCreated: ICreateQuestionResult
         {
             public Guid QuestionId { get; private set; }
             public string Title { get; private set; }
             public string Body { get; private set; }
 
-            public ProfileCreated(Guid questionId, string title,string body)
+            public QuestionCreated(Guid questionId, string title,string body)
             {
                 QuestionId = questionId;
                 Title = title;
@@ -25,21 +25,21 @@ namespace Profile.Domain.CreateProfileWorkflow
             }
         }
 
-        public class ProfileNotCreated: ICreateProfileResult
+        public class QuestionNotCreated: ICreateQuestionResult
         {
             public string Reason { get; set; }
 
-            public ProfileNotCreated(string reason)
+            public QuestionNotCreated(string reason)
             {
                 Reason = reason;
             }
         }
 
-        public class ProfileValidationFailed: ICreateProfileResult
+        public class QuestionValidationFailed: ICreateQuestionResult
         {
             public IEnumerable<string> ValidationErrors { get; private set; }
 
-            public ProfileValidationFailed(IEnumerable<string> errors)
+            public QuestionValidationFailed(IEnumerable<string> errors)
             {
                 ValidationErrors = errors.AsEnumerable();
             }

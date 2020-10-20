@@ -1,8 +1,8 @@
-﻿using Profile.Domain.CreateProfileWorkflow;
+﻿using Profile.Domain.CreateQuestionWorkflow;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using static Profile.Domain.CreateProfileWorkflow.CreateProfileResult;
+using static Profile.Domain.CreateQuestionWorkflow.CreateQuestionResult;
 
 namespace Test.App
 {
@@ -10,21 +10,21 @@ namespace Test.App
     {
         static void Main(string[] args)
         {
-            var cmd = new CreateProfileCmd("Ion", string.Empty, "Ionescu", "ion.inonescu@company.com");
-            var result = CreateProfile(cmd);
+            var cmd = new CreateQuestionCmd("Ion", string.Empty, "Ionescu", "ion.inonescu@company.com");
+            var result = CreateQuestion(cmd);
 
             result.Match(
-                    ProcessProfileCreated,
-                    ProcessProfileNotCreated,
-                    ProcessInvalidProfile
+                    ProcessQuestionCreated,
+                    ProcessQuestionNotCreated,
+                    ProcessInvalidQuestion
                 );
 
             Console.ReadLine();
         }
 
-        private static ICreateProfileResult ProcessInvalidProfile(ProfileValidationFailed validationErrors)
+        private static ICreateQuestionResult ProcessInvalidQuestion(QuestionValidationFailed validationErrors)
         {
-            Console.WriteLine("Profile validation failed: ");
+            Console.WriteLine("Question validation failed: ");
             foreach (var error in validationErrors.ValidationErrors)
             {
                 Console.WriteLine(error);
@@ -32,33 +32,33 @@ namespace Test.App
             return validationErrors;
         }
 
-        private static ICreateProfileResult ProcessProfileNotCreated(ProfileNotCreated profileNotCreatedResult)
+        private static ICreateQuestionResult ProcessQuestionNotCreated(QuestionNotCreated questionNotCreatedResult)
         {
-            Console.WriteLine($"Profile not created: {profileNotCreatedResult.Reason}");
-            return profileNotCreatedResult;
+            Console.WriteLine($"Question not created: {questionNotCreatedResult.Reason}");
+            return questionNotCreatedResult;
         }
 
-        private static ICreateProfileResult ProcessProfileCreated(ProfileCreated profile)
+        private static ICreateQuestionResult ProcessQuestionCreated(QuestionCreated question)
         {
-            Console.WriteLine($"Profile {profile.ProfileId}");
-            return profile;
+            Console.WriteLine($"Question {question.QuestionId}");
+            return question;
         }
 
-        public static ICreateProfileResult CreateProfile(CreateProfileCmd createProfileCommand)
+        public static ICreateQuestionResult CreateQuestion(CreateQuestionCmd createQuestionCommand)
         {
-            if (string.IsNullOrWhiteSpace(createProfileCommand.EmailAddress))
+            if (string.IsNullOrWhiteSpace(createQuestionCommand.EmailAddress))
             {
                 var errors = new List<string>() { "Invlaid email address" };
-                return new ProfileValidationFailed(errors);
+                return new QuestionValidationFailed(errors);
             }
 
             if(new Random().Next(10) > 1)
             {
-                return new ProfileNotCreated("Email could not be verified");
+                return new QuestionNotCreated("Email could not be verified");
             }
 
-            var profileId = Guid.NewGuid();
-            var result = new ProfileCreated(profileId, createProfileCommand.EmailAddress);
+            var questionId = Guid.NewGuid();
+            var result = new QuestionCreated(questionId, createQuestionCommand.EmailAddress);
 
             //execute logic
             return result;
