@@ -8,20 +8,18 @@ namespace Profile.Domain.CreateProfileWorkflow
     public struct CreateProfileCmd
     {
         [Required]
-        public string FirstName { get; private set; }
-        public string MiddleName { get; set; }
+        public string Title { get; private set; }
         [Required]
-        public string LastName { get; private set; }
+        public string Body { get; set; }
         [Required]
-        [EmailAddress]
-        public string EmailAddress { get; private set; }
+        public string Tags { get; private set; }
 
-        public CreateProfileCmd(string firstName, string middleName, string lastName, string emailAddress)
+
+        public CreateProfileCmd(string title, string body, string tags)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            EmailAddress = emailAddress;
-            MiddleName = middleName;
+            Title = title;
+            Body = body;
+            Tags = tags;
         }
     }
 }

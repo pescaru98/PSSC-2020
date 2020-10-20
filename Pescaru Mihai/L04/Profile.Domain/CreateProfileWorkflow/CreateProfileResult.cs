@@ -13,13 +13,15 @@ namespace Profile.Domain.CreateProfileWorkflow
 
         public class ProfileCreated: ICreateProfileResult
         {
-            public Guid ProfileId { get; private set; }
-            public string Email { get; private set; }
+            public Guid QuestionId { get; private set; }
+            public string Title { get; private set; }
+            public string Body { get; private set; }
 
-            public ProfileCreated(Guid profileId, string email)
+            public ProfileCreated(Guid questionId, string title,string body)
             {
-                ProfileId = profileId;
-                Email = email;
+                QuestionId = questionId;
+                Title = title;
+                Body = body;
             }
         }
 
