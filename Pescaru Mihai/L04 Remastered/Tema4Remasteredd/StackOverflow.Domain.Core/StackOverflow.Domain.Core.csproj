@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Contexts\Jobs\" />
+    <Folder Include="Contexts\UserProfile\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Desktop\SamplePSSC\PSSC-2020\exemple\L04\Primitives.IO\Primitives.IO.csproj" />
+    <ProjectReference Include="..\StackOverflow.Domain.Schema\StackOverflow.Domain.Schema.csproj" />
+  </ItemGroup>
+
+</Project>
