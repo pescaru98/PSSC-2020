@@ -8,7 +8,7 @@ namespace StackOverflow.Domain.Schema.Questions.CreateQuestionsOp
     public class CreateQuestionsCmd
     {
 
-        public CreateQuestionsCmd(string title, string body, string tags)
+        public CreateQuestionsCmd(string title, Body body, string[] tags)
         {
             Title = title;
             Body = body;
@@ -18,9 +18,11 @@ namespace StackOverflow.Domain.Schema.Questions.CreateQuestionsOp
         [MaxLength(50)]
         [Required]
         public string Title { get; }
-        [MaxLength(2000)]
+        [MaxLength(1000)]
         [Required]
-        public string Body { get; }
-        public string Tags { get; }
+        public Body Body { get; }
+        [Required]
+        
+        public string[] Tags { get; }
     }
 }

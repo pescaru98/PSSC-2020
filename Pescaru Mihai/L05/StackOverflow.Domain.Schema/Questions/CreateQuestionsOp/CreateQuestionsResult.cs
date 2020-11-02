@@ -14,7 +14,7 @@ namespace StackOverflow.Domain.Schema.Questions.CreateQuestionsOp
 
         public class QuestionsCreated : ICreateQuestionsResult
         {
-            public QuestionsCreated(Guid userId, string title, string body)
+            public QuestionsCreated(Guid userId, string title, Body body)
             {
                 UserId = userId;
                 Title = title;
@@ -23,7 +23,7 @@ namespace StackOverflow.Domain.Schema.Questions.CreateQuestionsOp
 
             public Guid UserId { get; }
             public string Title { get; }
-            public string Body { get; }
+            public Body Body { get; }
         }
 
         public class QuestionsNotCreated : ICreateQuestionsResult
