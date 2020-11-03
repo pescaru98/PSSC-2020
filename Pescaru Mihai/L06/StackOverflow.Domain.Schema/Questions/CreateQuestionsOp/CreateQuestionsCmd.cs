@@ -7,14 +7,14 @@ namespace StackOverflow.Domain.Schema.Questions.CreateQuestionsOp
 {
     public class CreateQuestionsCmd
     {
-
+        //should be privat ctor
         public CreateQuestionsCmd(string title, Body body, string[] tags)
         {
             Title = title;
             Body = body;
             Tags = tags;
         }
-
+        //should be privat ctor
         public CreateQuestionsCmd(global::System.String title, Body body, global::System.String[] tags, global::System.Int32 voteNumber)
         {
             Title = title;
