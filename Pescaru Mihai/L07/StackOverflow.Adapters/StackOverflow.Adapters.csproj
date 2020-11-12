@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Desktop\SamplePSSC\PSSC-2020\exemple\L04\Primitives.IO\Primitives.IO.csproj" />
+    <ProjectReference Include="..\StackOverflow.Domain.Schema\StackOverflow.Domain.Schema.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="LanguageCheck\" />
+    <Folder Include="ReplyAuthorAck\" />
+    <Folder Include="QuestionOwnerAck\" />
+  </ItemGroup>
+
+</Project>
